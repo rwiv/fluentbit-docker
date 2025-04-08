@@ -1,4 +1,4 @@
-function parse_tag(tag, timestamp, record)
+function parse_docker_tag(tag, timestamp, record)
     local attrs = record["attrs"]
     if attrs == nil or attrs["tag"] == nil then
         return 1, timestamp, record

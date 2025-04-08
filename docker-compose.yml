@@ -5,7 +5,7 @@ services:
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
-      - ./parse_tag.lua:/fluent-bit/etc/parse_tag.lua:ro
+      - ./parse_docker_tag.lua:/fluent-bit/etc/parse_docker_tag.lua:ro
     environment:
       LOKI_HOST: "${LOKI_HOST}"
     labels:
