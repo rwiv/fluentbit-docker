@@ -1,0 +1,19 @@
+services:
+  fluent-bit:
+    image: fluent/fluent-bit:4.0.0
+    container_name: fluent-bit
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - ./parse_tag.lua:/fluent-bit/etc/parse_tag.lua:ro
+    environment:
+      LOKI_HOST: "${LOKI_HOST}"
+    labels:
+      app: fluent-bit
+      host: ${HOSTNAME}
+    logging:
+      driver: json-file
+      options:
+        labels: app,host
+        tag: "container_image={{.ImageName}},container_name={{.Name}}"
+    restart: always
