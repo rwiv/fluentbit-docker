@@ -8,6 +8,8 @@ services:
       - ./parse_docker_tag.lua:/fluent-bit/etc/parse_docker_tag.lua:ro
     environment:
       LOKI_HOST: "${LOKI_HOST}"
+      LOKI_USERNAME: "${LOKI_USERNAME}"
+      LOKI_PASSWORD: "${LOKI_PASSWORD}"
     labels:
       app: fluent-bit
       host: ${HOSTNAME}
