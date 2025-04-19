@@ -20,7 +20,7 @@ function parse_docker_tag(tag, timestamp, record)
 
     local level = record["level"]
     if level ~= nil then
-        record["level"] = string.lower(level)
+        record["level"] = string.upper(level)
     end
 
     return 1, timestamp, record
